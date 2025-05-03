@@ -19,6 +19,7 @@ function App() {
           <a href="#whyus">Why Choose Us</a>
           <a href="#contact">Contact</a>
         </nav>
+        <img src="/poster.jpg" alt="Techy Crew Innovations Poster" className="home-poster" style={{width: '100%', maxHeight: '400px', objectFit: 'cover', marginTop: '1rem', borderRadius: '8px'}} />
       </header>
       <main>
         <section id="about"><AboutUs /></section>
