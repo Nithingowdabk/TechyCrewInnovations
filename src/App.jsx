@@ -5,6 +5,7 @@ import Technologies from './components/Technologies'
 import Achievements from './components/Achievements'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
+import Dashboard from './components/Dashboard'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <img src="/poster.jpg" alt="Techy Crew Innovations Poster" className="home-poster" style={{width: '100%', maxHeight: '400px', objectFit: 'cover', marginTop: '1rem', borderRadius: '8px'}} />
       </header>
       <main>
+        <section id="dashboard"><Dashboard /></section>
         <section id="about"><AboutUs /></section>
         <section id="services"><Services /></section>
         <section id="whyus" className="whyus-section">
