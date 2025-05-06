@@ -40,3 +40,64 @@
 .read-the-docs {
   color: #888;
 }
+
+.header.hero-section {
+  position: relative; /* Needed for absolute positioning */
+  width: 100%;
+  min-height: 400px; /* Ensure container has height */
+  display: flex; /* Optional: helps centering content if needed */
+  align-items: center; /* Optional: vertically center content */
+  justify-content: center; /* Optional: horizontally center content */
+  text-align: center; /* Center text within the hero section */
+  color: #333; /* Default text color, adjust as needed */
+  overflow: hidden; /* Hide parts of the image/overlay extending beyond the container */
+}
+
+/* Style for the text content container */
+.hero-content {
+  position: relative; /* Position relative to the header */
+  z-index: 3; /* Ensure text is above the overlay and image */
+  padding: 2rem; /* Add some padding around the text */
+}
+
+/* Add a light overlay */
+.header.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7); /* White overlay with 70% opacity */
+  z-index: 2; /* Place overlay above the image but below the text */
+}
+
+.home-poster {
+  position: absolute; /* Position absolutely within the header */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Make image cover the entire header */
+  object-fit: cover; /* Cover the container, cropping if necessary */
+  z-index: 1; /* Place image behind the overlay and text */
+  display: block;
+}
+
+/* Adjust text colors for better visibility if needed */
+.hero-content h1,
+.hero-content h2,
+.hero-content p,
+.hero-content nav a {
+  color: #222; /* Darker text color for contrast against light overlay */
+  margin-bottom: 0.5em; /* Add some spacing */
+}
+
+.hero-content nav a {
+  margin: 0 1em; /* Space out nav links */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero-content nav a:hover {
+  text-decoration: underline;
+}

@@ -6,20 +6,23 @@ import Achievements from './components/Achievements'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Dashboard from './components/Dashboard'
+import posterImage from '/poster.jpg'; // Import the image
 
 function App() {
   return (
     <div className="App">
       <header className="header hero-section">
-        <h1 className="brand">Techy Crew Innovations</h1>
-        <h2 className="tagline">Unleash Innovation with Techy Crew Innovations</h2>
-        <p className="subtitle">Your Trusted Partner for Digital Transformation</p>
-        <nav>
-          <a href="#about">About Us</a>
-          <a href="#services">Services</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <img src="/poster.jpg" alt="Techy Crew Innovations Poster" className="home-poster" style={{width: '100%', maxHeight: '400px', objectFit: 'cover', marginTop: '1rem', borderRadius: '8px'}} />
+        <div className="hero-content">
+          <h1 className="brand">Techy Crew Innovations</h1>
+          <h2 className="tagline">Unleash Innovation with Techy Crew Innovations</h2>
+          <p className="subtitle">Your Trusted Partner for Digital Transformation</p>
+          <nav>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+        <img src={posterImage} alt="Techy Crew Innovations Poster" className="home-poster" />
       </header>
       <main>
         <section id="dashboard"><Dashboard /></section>
