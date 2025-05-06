@@ -6,7 +6,6 @@ import Achievements from './components/Achievements'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Dashboard from './components/Dashboard'
-import posterImage from '/poster.jpg'; // Import the image
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
             <a href="#contact">Contact</a>
           </nav>
         </div>
-        <img src={posterImage} alt="Techy Crew Innovations Poster" className="home-poster" />
       </header>
       <main>
         <section id="dashboard"><Dashboard /></section>
