@@ -17,7 +17,6 @@ function App() {
         <nav>
           <a href="#about">About Us</a>
           <a href="#services">Services</a>
-          <a href="#whyus">Why Choose Us</a>
           <a href="#contact">Contact</a>
         </nav>
         <img src="/poster.jpg" alt="Techy Crew Innovations Poster" className="home-poster" style={{width: '100%', maxHeight: '400px', objectFit: 'cover', marginTop: '1rem', borderRadius: '8px'}} />
@@ -26,17 +25,6 @@ function App() {
         <section id="dashboard"><Dashboard /></section>
         <section id="about"><AboutUs /></section>
         <section id="services"><Services /></section>
-        <section id="whyus" className="whyus-section">
-          <h2>Why Choose Us?</h2>
-          <ul className="whyus-list">
-            <li>Expert Team with Proven Track Record</li>
-            <li>Client-Centric Approach</li>
-            <li>Cutting-Edge Technologies</li>
-            <li>End-to-End Solutions</li>
-            <li>Transparent Communication</li>
-            <li>On-Time Delivery</li>
-          </ul>
-        </section>
         <section id="technologies"><Technologies /></section>
         <section id="achievements"><Achievements /></section>
         <section id="testimonials"><Testimonials /></section>
