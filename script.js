@@ -48,13 +48,14 @@ class TypeWriter {
 document.addEventListener('DOMContentLoaded', function() {
     const typewriterElement = document.getElementById('typewriter-text');
     const words = [
-        'AI Projects 🧠',
+        'AI/AR Solutions 🚀',
         'IOT Systems 🔧',
         'Web Apps 🌐',
-        'Final Year Solutions 💸'
+        'Mini & Mega Projects 🎓',
+        'Budget-Friendly Tech 💸'
     ];
     
-    new TypeWriter(typewriterElement, words, 2000);
+    new TypeWriter(typewriterElement, words, 2500);
 });
 
 // Smooth Scrolling for Navigation Links
@@ -114,6 +115,62 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Enhanced Cyberpunk Effects
+document.addEventListener('DOMContentLoaded', function() {
+    // Add glowing effect to service cards on hover
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.boxShadow = '0 0 40px rgba(56, 189, 248, 0.5)';
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.boxShadow = '0 0 30px rgba(56, 189, 248, 0.3)';
+            this.style.transform = 'translateY(-5px) scale(1)';
+        });
+    });
+
+    // Add pulsing effect to contact icons
+    const contactIcons = document.querySelectorAll('.contact-icon');
+    contactIcons.forEach(icon => {
+        icon.addEventListener('mouseenter', function() {
+            this.style.animation = 'pulse 1s infinite';
+        });
+        
+        icon.addEventListener('mouseleave', function() {
+            this.style.animation = 'none';
+        });
+    });
+
+    // Add typing effect to terminal code
+    const terminalCode = document.querySelector('.terminal-body code');
+    if (terminalCode) {
+        const originalText = terminalCode.innerHTML;
+        let index = 0;
+        
+        const typeCode = () => {
+            if (index < originalText.length) {
+                terminalCode.innerHTML = originalText.substring(0, index + 1);
+                index++;
+                setTimeout(typeCode, 50);
+            }
+        };
+        
+        // Start typing effect when terminal comes into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(typeCode, 1000);
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+        
+        observer.observe(terminalCode);
+    }
+});
+
 // Intersection Observer for Animations
 document.addEventListener('DOMContentLoaded', function() {
     const observerOptions = {
@@ -126,6 +183,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
+                
+                // Add cyberpunk glow effect
+                if (entry.target.classList.contains('service-card')) {
+                    entry.target.style.boxShadow = '0 0 30px rgba(56, 189, 248, 0.3)';
+                }
             }
         });
     }, observerOptions);
@@ -134,8 +196,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.service-card, .contact-card');
     cards.forEach((card, index) => {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = `opacity 0.8s ease ${index * 0.1}s, transform 0.8s ease ${index * 0.1}s, box-shadow 0.8s ease ${index * 0.1}s`;
         observer.observe(card);
     });
 });
@@ -153,18 +215,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Add glow effect on terminal hover
+// Enhanced terminal hover effects
 document.addEventListener('DOMContentLoaded', function() {
     const terminal = document.querySelector('.terminal');
     
     if (terminal) {
         terminal.addEventListener('mouseenter', function() {
-            this.style.boxShadow = '0 0 40px rgba(14, 165, 233, 0.3)';
-            this.style.transition = 'box-shadow 0.3s ease';
+            this.style.boxShadow = '0 0 50px rgba(56, 189, 248, 0.6)';
+            this.style.transform = 'scale(1.02)';
+            this.style.transition = 'all 0.3s ease';
         });
         
         terminal.addEventListener('mouseleave', function() {
-            this.style.boxShadow = 'none';
+            this.style.boxShadow = '0 0 30px rgba(56, 189, 248, 0.2)';
+            this.style.transform = 'scale(1)';
         });
     }
 });
@@ -190,6 +254,33 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Add CSS animations for cyberpunk effects
+document.addEventListener('DOMContentLoaded', function() {
+    // Add pulse animation to CSS
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes pulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5)); }
+            50% { transform: scale(1.1); filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.8)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5)); }
+        }
+        
+        @keyframes neonGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(56, 189, 248, 0.8); }
+        }
+        
+        .service-card:hover .service-icon {
+            animation: pulse 1s infinite;
+        }
+        
+        .contact-card:hover .contact-icon {
+            animation: pulse 1s infinite;
+        }
+    `;
+    document.head.appendChild(style);
+});
+
 // Add typing animation to code block
 document.addEventListener('DOMContentLoaded', function() {
     const codeContent = document.querySelector('.terminal-body code');
@@ -198,28 +289,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const originalText = codeContent.innerHTML;
         let index = 0;
         
-        // Function to simulate typing effect when code block comes into view
         const typeCode = () => {
             if (index < originalText.length) {
-                // Simple character-by-character reveal
                 codeContent.innerHTML = originalText.substring(0, index + 1);
                 index++;
-                setTimeout(typeCode, 50);
+                setTimeout(typeCode, 30);
             }
         };
         
-        // Observer for code block
-        const codeObserver = new IntersectionObserver(function(entries) {
+        // Start typing effect when code section comes into view
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    codeContent.innerHTML = '';
-                    index = 0;
-                    setTimeout(typeCode, 1000); // Delay before starting
-                    codeObserver.unobserve(entry.target);
+                    setTimeout(typeCode, 500);
+                    observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.5 });
+        });
         
-        codeObserver.observe(codeContent);
+        observer.observe(codeContent);
     }
 });
