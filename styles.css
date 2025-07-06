@@ -89,11 +89,11 @@ body::before {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    min-height: 52px;
+    min-height: 72px;
 }
 
 .nav-logo {
-    height: 52px;
+    height: 72px;
     width: auto;
     border-radius: 10px;
     filter: drop-shadow(0 0 8px #00ffffa0);
@@ -140,7 +140,7 @@ body::before {
     }
     
     .nav-logo {
-        height: 42px;
+        height: 56px;
     }
     
     .nav-title {
@@ -835,7 +835,7 @@ body::before {
     }
     
     .nav-logo {
-        height: 36px;
+        height: 48px;
     }
     
     .nav-title {
