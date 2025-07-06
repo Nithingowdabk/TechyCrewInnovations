@@ -1018,47 +1018,54 @@ section, .footer {
     }
 }
 
-/* Custom cursor styles */
-body, * {
-    cursor: auto;
-}
-
-/* Hide system cursor site-wide */
-html, body, *, a, button, input, textarea, select {
-  cursor: none !important;
-}
-
-/* Glowing ring cursor */
-.cursor-glow {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  border: 2px solid transparent;
-  border-radius: 50%;
-  box-shadow: 0 0 10px #00fff7, 0 0 20px #ff00f7; /* Cyberpunk dual color glow */
-  background: radial-gradient(circle, #00fff7 0%, #ff00f7 100%);
-  pointer-events: none;
-  z-index: 9999;
-  animation: pulse 1s infinite ease-in-out alternate;
-  opacity: 0.8;
-  mix-blend-mode: screen;
-}
-
-/* Pulse animation */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.6;
+/* Custom cursor styles - Desktop only */
+@media (hover: hover) and (pointer: fine) and (min-width: 769px) {
+  /* Hide system cursor site-wide on desktop */
+  html, body, *, a, button, input, textarea, select {
+    cursor: none !important;
   }
-  100% {
-    transform: scale(1.2);
-    opacity: 1;
+
+  /* Glowing ring cursor */
+  .cursor-glow {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00fff7, 0 0 20px #ff00f7; /* Cyberpunk dual color glow */
+    background: radial-gradient(circle, #00fff7 0%, #ff00f7 100%);
+    pointer-events: none;
+    z-index: 9999;
+    animation: pulse 1s infinite ease-in-out alternate;
+    opacity: 0.8;
+    mix-blend-mode: screen;
+  }
+
+  /* Pulse animation */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
   }
 }
 
-@media (max-width: 768px) {
+/* Ensure normal cursor behavior on mobile and touch devices */
+@media (hover: none) or (pointer: coarse) or (max-width: 768px) {
+  html, body, *, a, button, input, textarea, select {
+    cursor: auto !important;
+  }
+  
+  .cursor-glow {
+    display: none !important;
+  }
+  
   .cursor-dot {
-    display: none;
+    display: none !important;
   }
 }
 
