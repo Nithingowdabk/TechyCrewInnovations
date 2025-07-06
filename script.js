@@ -51,8 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'AI/AR Solutions 🚀',
         'IOT Systems 🔧',
         'Web Apps 🌐',
-        'Mini & Mega Projects 🎓',
-        'Budget-Friendly Tech 💸'
+        'Mini & Mega Projects 🎓'
     ];
     
     new TypeWriter(typewriterElement, words, 2500);
@@ -70,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+                const offsetTop = targetSection.offsetTop - 80; // Account for fixed header
                 
                 window.scrollTo({
                     top: offsetTop,
@@ -83,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Button Click Handlers
 document.addEventListener('DOMContentLoaded', function() {
-    const getStartedButtons = document.querySelectorAll('.btn-primary, .nav-cta');
+    const getStartedButtons = document.querySelectorAll('.btn-primary');
     const contactButtons = document.querySelectorAll('.btn-secondary');
     
     getStartedButtons.forEach(button => {
@@ -139,6 +138,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         icon.addEventListener('mouseleave', function() {
+            this.style.animation = 'none';
+        });
+    });
+
+    // Add enhanced effects to social media contact icons
+    const contactIconLinks = document.querySelectorAll('.contact-icon-link');
+    contactIconLinks.forEach(link => {
+        link.addEventListener('mouseenter', function() {
+            this.style.animation = 'pulse 1s infinite';
+            // Add ripple effect
+            const ripple = document.createElement('div');
+            ripple.style.position = 'absolute';
+            ripple.style.borderRadius = '50%';
+            ripple.style.background = 'rgba(98, 162, 211, 0.3)';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'ripple 0.6s linear';
+            ripple.style.left = '50%';
+            ripple.style.top = '50%';
+            ripple.style.width = '100%';
+            ripple.style.height = '100%';
+            ripple.style.marginLeft = '-50%';
+            ripple.style.marginTop = '-50%';
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+        
+        link.addEventListener('mouseleave', function() {
             this.style.animation = 'none';
         });
     });
@@ -233,26 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Mobile menu toggle (for future enhancement)
-document.addEventListener('DOMContentLoaded', function() {
-    // Add mobile menu functionality if needed
-    const navbar = document.querySelector('.navbar');
-    let lastScrollTop = 0;
-    
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-            // Scrolling down
-            navbar.style.transform = 'translateY(-100%)';
-        } else {
-            // Scrolling up
-            navbar.style.transform = 'translateY(0)';
-        }
-        
-        lastScrollTop = scrollTop;
-    });
-});
+// Header is now fixed with clean design - no scroll effects needed
 
 // Add CSS animations for cyberpunk effects
 document.addEventListener('DOMContentLoaded', function() {
@@ -268,6 +278,13 @@ document.addEventListener('DOMContentLoaded', function() {
         @keyframes neonGlow {
             0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); }
             50% { box-shadow: 0 0 30px rgba(56, 189, 248, 0.8); }
+        }
+        
+        @keyframes ripple {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
         }
         
         .service-card:hover .service-icon {
@@ -310,3 +327,21 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(codeContent);
     }
 });
+
+// === Premium Cyberpunk Glowing Cursor System ===
+(function() {
+  if (!document.querySelector('.cursor-glow')) {
+    const cursor = document.createElement('div');
+    cursor.classList.add('cursor-glow');
+    document.body.appendChild(cursor);
+    
+    // Follow mouse movement with smooth positioning
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    
+    // Premium cursor always visible across the entire site
+    // System cursor completely hidden via CSS
+  }
+})();
