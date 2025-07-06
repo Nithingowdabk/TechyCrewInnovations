@@ -1062,9 +1062,26 @@ section, .footer {
   
   .cursor-glow {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
   
   .cursor-dot {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
+/* Additional mobile-specific cursor reset */
+@media (max-width: 768px), (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+  
+  .cursor-glow {
     display: none !important;
   }
 }

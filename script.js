@@ -328,9 +328,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// === Premium Cyberpunk Glowing Cursor System ===
+// === Premium Cyberpunk Glowing Cursor System - Desktop Only ===
 (function() {
-  if (!document.querySelector('.cursor-glow')) {
+  // Only create cursor on desktop devices with mouse support
+  const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 769px)').matches;
+  
+  if (isDesktop && !document.querySelector('.cursor-glow')) {
     const cursor = document.createElement('div');
     cursor.classList.add('cursor-glow');
     document.body.appendChild(cursor);
@@ -340,8 +343,24 @@ document.addEventListener('DOMContentLoaded', function() {
       cursor.style.left = e.clientX + 'px';
       cursor.style.top = e.clientY + 'px';
     });
-    
-    // Premium cursor always visible across the entire site
-    // System cursor completely hidden via CSS
   }
+  
+  // Remove cursor on window resize if switching to mobile view
+  window.addEventListener('resize', () => {
+    const isNowDesktop = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 769px)').matches;
+    const existingCursor = document.querySelector('.cursor-glow');
+    
+    if (!isNowDesktop && existingCursor) {
+      existingCursor.remove();
+    } else if (isNowDesktop && !existingCursor) {
+      const cursor = document.createElement('div');
+      cursor.classList.add('cursor-glow');
+      document.body.appendChild(cursor);
+      
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+    }
+  });
 })();
