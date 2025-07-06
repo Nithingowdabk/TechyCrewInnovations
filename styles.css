@@ -37,14 +37,14 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url("./main_logo.jpg");
+    background-image: url("./logo.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 40%;
-    opacity: 0.05;
+    background-size: 300px auto;
+    opacity: 0.06;
     pointer-events: none;
-    z-index: -1;
-    filter: grayscale(100%) brightness(0.8);
+    z-index: 0;
+    filter: grayscale(100%) brightness(1.2);
     animation: watermarkFloat 20s ease-in-out infinite;
 }
 
@@ -149,8 +149,8 @@ body::before {
     
     /* Adjust watermark size for tablets */
     body::before {
-        background-size: 60%;
-        opacity: 0.04;
+        background-size: 200px auto;
+        opacity: 0.025;
     }
 }
 
@@ -874,8 +874,8 @@ body::before {
     
     /* Adjust watermark size for mobile */
     body::before {
-        background-size: 80%;
-        opacity: 0.03;
+        background-size: 150px auto;
+        opacity: 0.02;
     }
 }
 
