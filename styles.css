@@ -88,8 +88,10 @@ body::before {
     margin: 0 auto;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1.5rem;
     min-height: 72px;
+    flex-wrap: wrap;
 }
 
 .nav-logo {
@@ -136,7 +138,16 @@ body::before {
 
 @media (max-width: 768px) {
     .navbar {
-        padding: 1.2rem 1rem;
+        padding: 1rem 1rem;
+    }
+    
+    .nav-brand {
+        flex-direction: column;
+        gap: 0.8rem;
+        min-height: auto;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
     }
     
     .nav-logo {
@@ -144,7 +155,80 @@ body::before {
     }
     
     .nav-title {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        text-align: center;
+    }
+    
+    .hero {
+        padding: 10rem 0 4rem;
+    }
+    
+    .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .typewriter-title {
+        font-size: 2rem;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+        min-width: 140px;
+        text-align: center;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .contact-card {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    
+    .contact-icons {
+        gap: 1rem;
+        margin: 1.5rem 0 2.5rem 0;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .contact-icon-link {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .cursor-dot {
+        display: none;
     }
     
     /* Adjust watermark size for tablets */
@@ -549,6 +633,7 @@ body::before {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 .contact-card:hover {
@@ -760,9 +845,13 @@ body::before {
     .footer-copyright {
         font-size: 0.85rem;
     }
+    .hero {
+        padding: 10rem 0 4rem;
+    }
     .hero .container {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 2rem;
     }
     .hero-title {
         font-size: 2.5rem;
@@ -773,10 +862,12 @@ body::before {
     .hero-buttons {
         justify-content: center;
         flex-wrap: wrap;
+        gap: 1rem;
     }
     .btn-primary, .btn-secondary {
         padding: 0.6rem 1.5rem;
         font-size: 0.9rem;
+        min-width: 140px;
     }
     .services-grid {
         grid-template-columns: 1fr;
@@ -831,7 +922,13 @@ body::before {
 
 @media (max-width: 480px) {
     .navbar {
-        padding: 1rem 1rem;
+        padding: 0.8rem 1rem;
+    }
+    
+    .nav-brand {
+        flex-direction: column;
+        gap: 0.6rem;
+        min-height: auto;
     }
     
     .nav-logo {
@@ -839,7 +936,9 @@ body::before {
     }
     
     .nav-title {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
+        text-align: center;
+        line-height: 1.2;
     }
     
     .footer-logo {
@@ -849,16 +948,20 @@ body::before {
         font-size: 0.8rem;
     }
     .hero {
-        padding: 1.5rem 0 2rem;
+        padding: 8rem 0 2rem;
     }
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
     }
     .typewriter-title {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     .terminal-body {
         padding: 1rem;
@@ -870,6 +973,88 @@ body::before {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
+    }
+    
+    /* Contact section mobile fixes */
+    .contact {
+        padding: 4rem 0 3rem 0;
+    }
+    
+    .contact-grid {
+        flex-direction: column;
+        gap: 1.2rem;
+        margin-bottom: 2rem;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .contact-card {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+        padding: 1.5rem 1rem;
+        min-width: auto;
+        flex: none;
+    }
+    
+    .contact-icons {
+        gap: 0.8rem;
+        margin: 1.5rem 0 2rem 0;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .contact-icon-link {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+    }
+    
+    .quote-section {
+        padding: 25px 15px;
+        text-align: center;
+    }
+    
+    .quote-section h2 {
+        font-size: 1.2rem;
+        line-height: 1.3;
+    }
+    
+    /* Container padding adjustments */
+    .container {
+        padding: 0 0.8rem;
+    }
+    
+    /* Hero buttons mobile alignment */
+    .hero-buttons {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+    }
+    
+    .btn-primary, .btn-secondary {
+        min-width: 130px;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+        text-align: center;
+    }
+    
+    /* Services section mobile spacing */
+    .services {
+        padding: 4rem 0;
+    }
+    
+    .services-description-block {
+        padding: 0.2rem 0.5rem;
+        font-size: 1rem;
+    }
+    
+    .services-description-block strong {
+        font-size: 1.05rem;
     }
     
     /* Adjust watermark size for mobile */
